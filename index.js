@@ -12,8 +12,8 @@ connectMongodb("mongodb://localhost:27017/project2");
 
 //middlewares
 
-app.use(logReqRes("log.txt"));
 app.use(express.urlencoded({ extended: false }));
+app.use(logReqRes("log.txt"));
 
 //Routes
 //users pe koi req aaye to use userRouter
