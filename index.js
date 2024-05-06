@@ -5,16 +5,21 @@ const PORT = 8000;
 const { connectMongodb } = require("./connection");
 const User = require("./models/user");
 const userRouter = require("./routes/user");
+const { logReqRes } = require("./middlewares/index");
 
-//connect
+//connection
 connectMongodb("mongodb://localhost:27017/project2");
 
+//middlewares
+
+app.use(logReqRes("log.txt"));
 app.use(express.urlencoded({ extended: false }));
 
 //Routes
 //users pe koi req aaye to use userRouter
 //-> /users/:id or /users
 app.use("/users", userRouter);
+
 app.listen(PORT, () => {
   console.log(`server started`);
 });
