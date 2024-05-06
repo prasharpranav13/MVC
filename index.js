@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 
 //Routes
 //users pe koi req aaye to use userRouter
-//-> /users/:id or /users
-app.use("/users", userRouter);
+//-> /api/users/:id or /api/users
+app.use("/api/users", userRouter);
 
 app.listen(PORT, () => {
   console.log(`server started`);
